@@ -302,13 +302,13 @@ def run(driver, userName, password, campus, mail_address, phone_number, reason, 
     fill_in(driver, campus, mail_address, phone_number, reason, detail, habitation, district, street)
     print('=================================')
 
-    if capture:
-        screen_capture(driver, path)
-        print('=================================')
+#     if capture:
+#         screen_capture(driver, path)
+#         print('=================================')
 
-    if wechat:
-        wechat_notification(userName, sckey)
-        print('=================================')
+#     if wechat:
+#         wechat_notification(userName, sckey)
+#         print('=================================')
 
     print('报备成功！\n')
 
