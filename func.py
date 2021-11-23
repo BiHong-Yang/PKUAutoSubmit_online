@@ -17,6 +17,9 @@ warnings.filterwarnings('ignore')
 
 def send_notice(key):
     url = "https://maker.ifttt.com/trigger/Report/with/key/"+key+""
+    print("key is")
+    print(key)
+
     payload = "{\n    \"value1\": \""+time.strftime("%m月-%d日", time.localtime()) +"\"\n}"
     headers = {
     'Content-Type': "application/json",
