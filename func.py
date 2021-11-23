@@ -30,8 +30,9 @@ def send_notice(key):
     'Connection': "keep-alive",
     'cache-control': "no-cache"
     }
- 
+    print("sending\n")
     response = requests.request("POST", url, data=payload.encode('utf-8'), headers=headers)
+    print("sent")
  
  
 
