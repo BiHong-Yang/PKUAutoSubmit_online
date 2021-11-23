@@ -22,6 +22,7 @@ jobs:
            
       - name: 'Install requirements'
         run: pip install selenium
+        run: pip install requests
         
       - name: 'Working'
         run: |
