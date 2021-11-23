@@ -16,10 +16,8 @@ warnings.filterwarnings('ignore')
 
 
 def send_notice(key):
-    print("key is")
-    print(key)
-    url = "https://maker.ifttt.com/trigger/Report/with/key/"+key+""
 
+    url = "https://maker.ifttt.com/trigger/Report/with/key/"+key+""
 
     payload = "{\n    \"value1\": \""+time.strftime("%m月-%d日", time.localtime()) +"\"\n}"
     headers = {
@@ -34,9 +32,7 @@ def send_notice(key):
     'Connection': "keep-alive",
     'cache-control': "no-cache"
     }
-    print("sending\n")
     response = requests.request("POST", url, data=payload.encode('utf-8'), headers=headers)
-    print("sent")
  
  
 
