@@ -182,9 +182,9 @@ def fill_out(driver, campus, mail_address, phone_number, reason, detail, destina
     select_in_out(driver, '出校')
     print('Done')
 
-    print('选择校区    ', end='')
-    select_campus(driver, campus)
-    print('Done')
+#     print('选择校区    ', end='')
+#     select_campus(driver, campus)
+#     print('Done')
 
     print('填写邮箱    ', end='')
     write_mail_address(driver, mail_address)
