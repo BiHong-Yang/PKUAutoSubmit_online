@@ -10,7 +10,30 @@ import os
 import time
 import warnings
 import json
+import requests
+import time
 warnings.filterwarnings('ignore')
+
+
+def send_notice(key):
+    url = "https://maker.ifttt.com/trigger/Report/with/key/"+key+""
+    payload = "{\n    \"value1\": \""+time.strftime("%m月-%d日", time.localtime()) +"\"\n}"
+    headers = {
+    'Content-Type': "application/json",
+    'User-Agent': "PostmanRuntime/7.15.0",
+    'Accept': "*/*",
+    'Cache-Control': "no-cache",
+    'Postman-Token': "a9477d0f-08ee-4960-b6f8-9fd85dc0d5cc,d376ec80-54e1-450a-8215-952ea91b01dd",
+    'Host': "maker.ifttt.com",
+    'accept-encoding': "gzip, deflate",
+    'content-length': "63",
+    'Connection': "keep-alive",
+    'cache-control': "no-cache"
+    }
+ 
+    response = requests.request("POST", url, data=payload.encode('utf-8'), headers=headers)
+ 
+ 
 
 
 def login(driver, userName, password, retry=0):
@@ -290,7 +313,7 @@ def wechat_notification(userName, sckey):
 
 
 def run(driver, userName, password, campus, mail_address, phone_number, reason, detail, destination, track,
-        habitation, district, street, capture, path, wechat, sckey):
+        habitation, district, street, capture, path, wechat, sckey,iftttkey):
     login(driver, userName, password)
     print('=================================')
 
@@ -311,6 +334,7 @@ def run(driver, userName, password, campus, mail_address, phone_number, reason, 
 #         print('=================================')
 
     print('报备成功！\n')
+    send_notice(iftttkey)
 
 
 if __name__ == '__main__':

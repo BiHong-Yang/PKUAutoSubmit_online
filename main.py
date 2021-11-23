@@ -35,7 +35,7 @@ def go(config):
     wechat = conf.getboolean('wechat', '是否需要微信通知')
 
     run(driver_pjs, argconf.ID, argconf.PASSWORD, campus, argconf.MAIL_ADDRESS, argconf.PHONE_NUMBER, reason, detail, destination, track,
-        habitation, district, street, capture, path, wechat, argconf.SENDKEY)
+        habitation, district, street, capture, path, wechat, argconf.SENDKEY,argconf.IFTTT_KEY)
 
 
 if __name__ == '__main__':
@@ -46,6 +46,7 @@ if __name__ == '__main__':
     parser.add_argument('--MAIL_ADDRESS', type=str)
     parser.add_argument('--PHONE_NUMBER', type=str)
     parser.add_argument('--SENDKEY', type=str)
+    parser.add_argument('--IFTTT_KEY', type=str)
     argconf = parser.parse_args()
 
     chrome_options = Options()
