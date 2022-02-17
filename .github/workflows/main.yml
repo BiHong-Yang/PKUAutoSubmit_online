@@ -1,0 +1,26 @@
+name: PKUAutoSubmit
+
+on:
+  schedule:
+    - cron: '0 3,4 * * *'
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: 'Set up Python'
+        uses: actions/setup-python@v1
+        with:
+           python-version: 3.7
+           
+      - name: 'Install requirements'
+        run: pip install selenium
+             pip install requests
+        
+      - name: 'Working'
+        run:
