@@ -3,13 +3,15 @@ name: PKUAutoSubmit
 on:
   schedule:
     - cron: '0 3,4 * * *'
-
+    
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
+
       - name: Checkout
         uses: actions/checkout@v2
         
@@ -24,3 +26,5 @@ jobs:
         
       - name: 'Working'
         run:
+          python main.py --ID ${{secrets.ID}} --PASSWORD ${{secrets.PASSWORD}} --MAIL_ADDRESS ${{secrets.MAIL_ADDRESS}} --PHONE_NUMBER ${{secrets.PHONE_NUMBER}} --SENDKEY ${{secrets.SENDKEY}} --IFTTT_KEY ${{secrets.IFTTT_KEY}}
+   
